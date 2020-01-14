@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion buildConfig.compileSdk
+
+    defaultConfig {
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
+        versionCode buildConfig.versionCode
+        versionName buildConfig.versionName
+        applicationId buildConfig.applicationId
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'whatthestack'
+            keyAlias 'whatthestack'
+            keyPassword 'whatthestack'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ":what-the-stack")
+
+    implementation libs.kotlinStdLib
+    implementation libs.appCompat
+    implementation libs.coreKtx
+    implementation libs.fragmentKtx
+    implementation libs.constraintLayout
+    implementation libs.materialComponents
+
+    testImplementation libs.junit
+
+    androidTestImplementation libs.androidxTestCore
+    androidTestImplementation libs.androidxTestExt
+    androidTestImplementation libs.espressoCore
+}

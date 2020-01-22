@@ -29,7 +29,6 @@ Running in a separate process is important because when an uncaught exception is
 
 ## Installation
 
-Instructions will be posted here soon!
 Add Jitpack repository in your root `build.gradle` file:
 
 ```groovy

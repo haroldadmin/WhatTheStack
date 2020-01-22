@@ -30,6 +30,26 @@ Running in a separate process is important because when an uncaught exception is
 ## Installation
 
 Instructions will be posted here soon!
+Add Jitpack repository in your root `build.gradle` file:
+
+```groovy
+allprojects {
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+And then add the dependency to your app:
+
+```groovy
+dependencies {
+  implementation 'com.github.haroldadmin:WhatTheStack:(latest-version)'
+}
+```
+
+[![Release](https://jitpack.io/v/haroldadmin/WhatTheStack.svg)](https://jitpack.io/#haroldadmin/WhatTheStack)
 
 ## Contributing
 

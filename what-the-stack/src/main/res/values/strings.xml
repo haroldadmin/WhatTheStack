@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="header_text">Uncaught Exception</string>
+    <string name="explanation_text">An uncaught exception was thrown during the execution of your application</string>
+    <string name="sample_stack_trace">
+        2020-01-12 16:01:48.190 15365-15365/com.haroldadmin.crashyapp E/AndroidRuntime: FATAL EXCEPTION: main
+    Process: com.haroldadmin.crashyapp, PID: 15365
+    java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:502)
+        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:930)
+     Caused by: java.lang.reflect.InvocationTargetException
+        at java.lang.reflect.Method.invoke(Native Method)
+        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:492)
+        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:930) 
+     Caused by: com.haroldadmin.crashyapp.MyCustomException: Because I can exception
+        at com.haroldadmin.crashyapp.MainActivity$onCreate$1.onClick(MainActivity.kt:17)
+        at android.view.View.performClick(View.java:7140)
+        at android.view.View.performClickInternal(View.java:7117)
+        at android.view.View.access$3500(View.java:801)
+        at android.view.View$PerformClick.run(View.java:27351)
+        at android.os.Handler.handleCallback(Handler.java:883)
+        at android.os.Handler.dispatchMessage(Handler.java:100)
+        at android.os.Looper.loop(Looper.java:214)
+        at android.app.ActivityThread.main(ActivityThread.java:7356)
+        at java.lang.reflect.Method.invoke(Native Method) 
+        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:492) 
+        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:930) 
+    </string>
+    <string name="exception_name">Exception: %1$s</string>
+    <string name="exception_cause">Cause: %1$s</string>
+    <string name="stacktrace">Stacktrace</string>
+    <string name="exception_message">Message: %1$s</string>
+    <string name="copy_stacktrace">Copy stacktrace</string>
+    <string name="relaunch_app">Relaunch App</string>
+    <string name="copied_message">Stacktrace copied!</string>
+</resources>

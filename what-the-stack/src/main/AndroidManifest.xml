@@ -1,2 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.haroldadmin.whatthestack" />
+    package="com.haroldadmin.whatthestack">
+    <application>
+        <service
+            android:name=".WhatTheStackService"
+            android:process=":what_the_stack_process" />
+        <activity
+            android:name=".WhatTheStackActivity"
+            android:theme="@style/Theme.WhatTheStackTheme"
+            android:process=":what_the_stack_process" />
+    </application>
+</manifest>

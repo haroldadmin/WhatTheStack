@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScrollRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/header_text"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textColor="?attr/colorOnSurface" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/explanation_text"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="?attr/colorOnSurface" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/exceptionName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="0.7"
+            android:fontFamily="monospace"
+            android:text="@string/exception_name"
+            android:textAppearance="?attr/textAppearanceBody1"
+            tools:text="Exception: java.lang.RuntimeException" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/exceptionCause"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="0.7"
+            android:fontFamily="monospace"
+            android:text="@string/exception_cause"
+            android:textAppearance="?attr/textAppearanceBody1"
+            tools:text="Cause: BecauseICanException" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/exceptionMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="0.7"
+            android:fontFamily="monospace"
+            android:text="@string/exception_message"
+            android:textAppearance="?attr/textAppearanceBody1"
+            tools:text="Message: Because I Can" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/copyStacktrace"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/copy_stacktrace"
+            android:textColor="?attr/colorOnSurface"/>
+
+        <TextView
+            android:id="@+id/stacktraceHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/stacktrace"
+            android:textAppearance="?attr/textAppearanceOverline" />
+
+        <ScrollView
+            android:id="@+id/stacktraceScroller"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:id="@+id/stacktrace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:scrollHorizontally="true"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?attr/colorError"
+                tools:text="@string/sample_stack_trace" />
+        </ScrollView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

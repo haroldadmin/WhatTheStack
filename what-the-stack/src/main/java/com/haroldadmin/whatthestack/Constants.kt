@@ -1,7 +1,7 @@
 package com.haroldadmin.whatthestack
 
 /**
- * This key is used to transfer the parcelled [ExceptionData] across processes.
+ * These keys are used to transfer the various components of [ExceptionData] across processes.
  */
 internal const val KEY_EXCEPTION_TYPE = "com.haroldadmin.whatthestack.exception.type"
 internal const val KEY_EXCEPTION_CAUSE = "com.haroldadmin.whatthestack.exception.cause"

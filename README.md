@@ -12,20 +12,24 @@ All that is needed to initialize this library is to use the `init()` method in t
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        WhatTheStack(this).init()
+        if (BuildConfig.DEBUG) {
+          WhatTheStack(this).init()
+        }
     }
 }
 ```
 
 And when an error is thrown in your application, you shall be greeted with a screen similar to this:
 
-![ScreenShot](media/screenshot.jpeg)]
+<img src="media/screenshot.jpeg" width="360px" height="640px"/>
 
 ## Under the hood
 
-This library works by setting a default uncaught-exception-handler on your app. When an uncaught exception is thrown, it is caught by this handler and sent to the library to parse and display to you. This is accomplished by running a bound service in a separate process than your app.
+This library works by setting a default `UncaughtExceptionHandler` on your app, and running a service to receive notifications about these exceptions.
 
-Running in a separate process is important because when an uncaught exception is thrown, the main thread of your application becomes unable to perform an UI related actions, and hence can't launch an intent to display the error screen shipped with this library. Therefore, running in a separate process allows us to perform UI related actions even when the main thread of the app process has stopped.
+When an uncaught exception is thrown, it is caught by this handler and sent to the service running in a _different process than your application_ to parse and display the information about the exception to you.
+
+Running in a separate process is important because when an uncaught exception is thrown, the main thread of your application becomes unable to perform any UI related actions, and hence can't launch an intent to display the error screen shipped with this library.
 
 ## Installation
 
@@ -50,6 +54,8 @@ dependencies {
 
 [![Release](https://jitpack.io/v/haroldadmin/WhatTheStack.svg)](https://jitpack.io/#haroldadmin/WhatTheStack)
 
-## Contributing
+## Contributions
 
-Contributions to this library are very welcome. I threw this together over one weekend, and it hasn't been thoroughly tested. Community validation and contributions would therefore be great.
+Contributions to this library are very welcome.
+
+I threw this together over one weekend, and it hasn't been thoroughly tested. Community validation and contributions would therefore be great.

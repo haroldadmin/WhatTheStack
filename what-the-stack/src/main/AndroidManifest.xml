@@ -1,6 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.haroldadmin.whatthestack">
     <application>
+        <provider
+            android:name=".WhatTheStackInitProvider"
+            android:authorities="${applicationId}.WhatTheStackInitProvider"
+            android:exported="false"
+            android:enabled="true"/>
         <service
             android:name=".WhatTheStackService"
             android:process=":what_the_stack_process" />

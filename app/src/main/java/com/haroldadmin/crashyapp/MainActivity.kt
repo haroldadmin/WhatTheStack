@@ -16,4 +16,4 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-private class BecauseICanException : Exception("This exception is purely thrown because it can be thrown")
+private class BecauseICanException : Exception("This exception is thrown purely because it can be thrown")

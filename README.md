@@ -6,11 +6,24 @@ It shows you a pretty error screen when your Android App crashes, instead of a b
 
 ## Setup
 
-WhatTheStack initializes automatically when your app starts. Just follow the [Installation Instructions](#installation) to set it up.
+Follow the [Installation Instructions](#installation) to set it up.
 
 Now when an uncaught exception is thrown in your application, you shall be greeted with a screen similar to this:
 
 <img src="media/screenshot.jpeg" width="360px" height="640px"/>
+
+### Disabling automatic initialization
+
+`WhatTheStack` initializes automatically when your application starts. It accomplishes this using a `ContentProvider`.
+
+If you want to disable automatic initialization, you should disable the initialization content provider of this library by adding the following lines to your application's `AndroidManifest.xml` file:
+
+```xml
+<provider
+  android:name="com.haroldadmin.whatthestack.WhatTheStackInitProvider"
+  android:authorities="${applicationId}.WhatTheStackInitProvider"
+  tools:node="remove" />
+```
 
 ## Under the hood
 

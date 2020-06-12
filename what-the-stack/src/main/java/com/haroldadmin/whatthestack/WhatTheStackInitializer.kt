@@ -1,8 +1,8 @@
 package com.haroldadmin.whatthestack
 
-import java.lang.Class
 import android.content.Context
 import androidx.startup.Initializer
+import java.lang.Class
 
 /**
  * WhatTheStackInitializer is an [androidx.startup.Initializer] for WhatTheStack
@@ -11,7 +11,7 @@ import androidx.startup.Initializer
  * a sensible value here so we return an instance of a dummy class [WhatTheStackInitializedToken]
  * instead.
  */
-class WhatTheStackInitializer: Initializer<WhatTheStackInitializedToken> {
+class WhatTheStackInitializer : Initializer<WhatTheStackInitializedToken> {
 
     override fun create(context: Context): WhatTheStackInitializedToken {
         InitializationManager.init(context)
@@ -21,7 +21,6 @@ class WhatTheStackInitializer: Initializer<WhatTheStackInitializedToken> {
     override fun dependencies(): List<Class<out Initializer<*>>> {
         return emptyList()
     }
-
 }
 
 /**

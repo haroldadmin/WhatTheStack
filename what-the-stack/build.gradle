@@ -47,6 +47,7 @@ dependencies {
     implementation libs.fragmentKtx
     implementation libs.constraintLayout
     implementation libs.materialComponents
+    implementation libs.startup
     implementation libs.insetter
 
     testImplementation libs.junit

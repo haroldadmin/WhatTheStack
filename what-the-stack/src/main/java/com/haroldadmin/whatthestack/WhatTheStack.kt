@@ -21,11 +21,11 @@ class WhatTheStack(private val applicationContext: Context) {
 
     @Suppress("unused")
     fun init() {
-        WhatTheStackInitializer.init(applicationContext)
+        InitializationManager.init(applicationContext)
     }
 }
 
-internal object WhatTheStackInitializer {
+internal object InitializationManager {
 
     private var isInitialized: Boolean = false
 

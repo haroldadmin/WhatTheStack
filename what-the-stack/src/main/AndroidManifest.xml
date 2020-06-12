@@ -1,11 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.haroldadmin.whatthestack">
     <application>
         <provider
-            android:name=".WhatTheStackInitProvider"
-            android:authorities="${applicationId}.WhatTheStackInitProvider"
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
-            android:enabled="true"/>
+            tools:node="merge">
+            <meta-data  android:name="com.haroldadmin.whatthestack.WhatTheStackInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
         <service
             android:name=".WhatTheStackService"
             android:process=":what_the_stack_process" />

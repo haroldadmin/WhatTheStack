@@ -26,6 +26,7 @@ buildscript {
             "espressoCore"      : "3.2.0",
             "mockk"             : "1.9.3",
             "robolectric"       : "4.3.1",
+            "startup"           : "1.0.0-alpha01",
     ]
 
     ext.libs = [
@@ -36,6 +37,7 @@ buildscript {
             "materialComponents": "com.google.android.material:material:${versions.materialComponents}",
             "constraintLayout"  : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
             "fragmentKtx"       : "androidx.fragment:fragment-ktx:${versions.fragment}",
+            "startup"           : "androidx.startup:startup-runtime:${versions.startup}",
             "insetter"          : "dev.chrisbanes:insetter-ktx:${versions.insetter}",
 
             "junit"             : "junit:junit:${versions.junit}",

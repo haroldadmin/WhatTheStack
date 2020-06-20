@@ -8,30 +8,44 @@ It shows you a pretty error screen when your Android App crashes, instead of a b
 
 Follow the [Installation Instructions](#installation) to set it up.
 
-Now when an uncaught exception is thrown in your application, you shall be greeted with a screen similar to this:
+_Remember to use WhatTheStack only in debug builds of your app by using `debugImplementation` instead of `implementation.`_
+
+Now when an uncaught exception is thrown in your application, you will be greeted with a screen similar to this:
 
 <img src="media/screenshot.jpeg" width="360px" height="640px"/>
 
 ### Disabling automatic initialization
 
-`WhatTheStack` initializes automatically when your application starts. It accomplishes this using a `ContentProvider`.
+`WhatTheStack` initializes automatically when your application starts. It accomplishes this using Jetpack's App Startup library.
 
-If you want to disable automatic initialization, you should disable the initialization content provider of this library by adding the following lines to your application's `AndroidManifest.xml` file:
+If you want to disable automatic startup, add the following lines to your Manifest file:
 
 ```xml
 <provider
-  android:name="com.haroldadmin.whatthestack.WhatTheStackInitProvider"
-  android:authorities="${applicationId}.WhatTheStackInitProvider"
-  tools:node="remove" />
+  android:name="androidx.startup.InitializationProvider"
+  android:authorities="${applicationId}.androidx-startup"
+  android:exported="false"
+  tools:node="merge">
+  <meta-data  android:name="com.haroldadmin.whatthestack.WhatTheStackInitializer"
+    android:value="androidx.startup"
+     tools:node="remove"/>
+</provider>
 ```
 
 ## Under the hood
 
-This library works by setting a default `UncaughtExceptionHandler` on your app, and running a service to receive notifications about these exceptions.
+This library works by setting a default `UncaughtExceptionHandler` on your app, and running a service to receive notifications about thrown exceptions.
 
-When an uncaught exception is thrown, it is caught by this handler and sent to the service running in a _different process than your application_ to parse and display the information about the exception to you.
+When an uncaught exception is thrown, it is caught by this handler and sent to the service running in a _different process than your application_ to parse and display information about the exception.
 
 Running in a separate process is important because when an uncaught exception is thrown, the main thread of your application becomes unable to perform any UI related actions, and hence can't launch an intent to display the error screen shipped with this library.
+
+## Breaks Crash Reporting in Debug builds
+
+WhatTheStack works by replacing the default uncaught exception handler in your app's process.
+Unfortunately, crash reporting libraries such as Firebase Crashlytics also work in this manner.
+Since there can only be one default uncaught exception handler and there is no fixed order of initialization for them, WhatTheStack prevents crash reporting libraries from working properly in debug builds.
+This is not a problem for most of the time as crash reporting is commonly used only in release builds.
 
 ## Installation
 
@@ -60,5 +74,3 @@ It is not recommended to use WhatTheStack in anything other than debug builds of
 ## Contributions
 
 Contributions to this library are very welcome.
-
-I threw this together over one weekend, and it hasn't been thoroughly tested. Community validation and contributions would therefore be great.

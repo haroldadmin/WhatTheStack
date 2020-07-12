@@ -40,12 +40,12 @@ When an uncaught exception is thrown, it is caught by this handler and sent to t
 
 Running in a separate process is important because when an uncaught exception is thrown, the main thread of your application becomes unable to perform any UI related actions, and hence can't launch an intent to display the error screen shipped with this library.
 
-## Breaks Crash Reporting in Debug builds
+## Impact on Crashlytics
 
-WhatTheStack works by replacing the default uncaught exception handler in your app's process.
-Unfortunately, crash reporting libraries such as Firebase Crashlytics also work in this manner.
-Since there can only be one default uncaught exception handler and there is no fixed order of initialization for them, WhatTheStack prevents crash reporting libraries from working properly in debug builds.
-This is not a problem for most of the time as crash reporting is commonly used only in release builds.
+WhatTheStack works by replacing the default uncaught exception handler in your app's process. Unfortunately, crash reporting libraries such as Firebase Crashlytics also work in this manner.
+Since there can only be one default uncaught exception handler, WhatTheStack might break crash reporting libraries from working properly in debug builds.
+
+This *should not be a problem for most users* as crash reporting tools are rarely used in debug builds.
 
 ## Installation
 

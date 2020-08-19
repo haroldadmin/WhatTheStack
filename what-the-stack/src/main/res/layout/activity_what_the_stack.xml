@@ -103,7 +103,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:scrollHorizontally="true"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?attr/colorError"
                 tools:text="@string/sample_stack_trace" />

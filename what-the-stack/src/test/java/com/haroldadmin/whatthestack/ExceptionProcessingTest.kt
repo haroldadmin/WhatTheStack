@@ -35,7 +35,7 @@ internal class ExceptionProcessingTest {
         val outputStream = StringOutputStream()
         exception.printStackTrace(PrintStream(outputStream))
 
-        assert(outputStream.getString() == exception.stacktrace())
+        assert(outputStream.getString() == exception.stackTraceToString())
     }
 
     @Test
@@ -45,7 +45,7 @@ internal class ExceptionProcessingTest {
 
         assert(processedData.type == exception.type())
         assert(processedData.message == exception.rootCause().message)
-        assert(processedData.stacktrace == exception.rootCause().stacktrace())
+        assert(processedData.stacktrace == exception.stackTraceToString())
         assert(processedData.cause == exception.rootCause().type())
     }
 }

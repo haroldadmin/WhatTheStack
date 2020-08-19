@@ -4,10 +4,16 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.updatePadding
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
+import dev.chrisbanes.insetter.Insetter
+import dev.chrisbanes.insetter.Side
 import dev.chrisbanes.insetter.doOnApplyWindowInsets
 import kotlinx.android.synthetic.main.activity_what_the_stack.*
 
@@ -25,31 +31,42 @@ class WhatTheStackActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_what_the_stack)
 
-        nestedScrollRoot.apply {
-            systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
+        window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 
-            doOnApplyWindowInsets { view, insets, initialState ->
-                view.updatePadding(
-                        top = initialState.paddings.top + insets.systemWindowInsetTop
-                )
-            }
-        }
+        Insetter.builder()
+            .applySystemWindowInsetsToPadding(Side.LEFT or Side.RIGHT or Side.TOP)
+            .applyToView(findViewById(R.id.nestedScrollRoot))
 
         val type = intent.getStringExtra(KEY_EXCEPTION_TYPE)
         val cause = intent.getStringExtra(KEY_EXCEPTION_CAUSE)
         val message = intent.getStringExtra(KEY_EXCEPTION_MESSAGE)
         val stackTrace = intent.getStringExtra(KEY_EXCEPTION_STACKTRACE)
 
-        stacktrace.text = stackTrace
-        exceptionName.text = getString(R.string.exception_name, type)
-        exceptionCause.text = getString(R.string.exception_cause, cause)
-        exceptionMessage.text = getString(R.string.exception_message, message)
+        findViewById<TextView>(R.id.stacktrace).apply {
+            text = stackTrace
+            setHorizontallyScrolling(true)
+            movementMethod = ScrollingMovementMethod()
+        }
 
-        copyStacktrace.setOnClickListener {
-            val clipping = ClipData.newPlainText("stacktrace", stackTrace)
-            clipboardManager.setPrimaryClip(clipping)
-            snackbar { R.string.copied_message }
+        findViewById<AppCompatTextView>(R.id.exceptionName).apply {
+            text = getString(R.string.exception_name, type)
+        }
+
+        findViewById<AppCompatTextView>(R.id.exceptionCause).apply {
+            text = getString(R.string.exception_cause, cause)
+        }
+
+        findViewById<AppCompatTextView>(R.id.exceptionMessage).apply {
+            text = getString(R.string.exception_message, message)
+        }
+
+        findViewById<MaterialButton>(R.id.copyStacktrace).apply {
+            setOnClickListener {
+                val clipping = ClipData.newPlainText("stacktrace", stackTrace)
+                clipboardManager.setPrimaryClip(clipping)
+                snackbar { R.string.copied_message }
+            }
         }
     }
 

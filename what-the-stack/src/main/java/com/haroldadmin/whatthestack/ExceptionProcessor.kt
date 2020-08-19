@@ -1,7 +1,6 @@
 package com.haroldadmin.whatthestack
 
 import android.os.Parcelable
-import java.io.PrintStream
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -29,7 +28,7 @@ internal fun Throwable.process(): ExceptionData {
     val rootCauseOfException = rootCause()
     val cause = rootCauseOfException.type()
     val message = rootCauseOfException.message ?: "Unknown"
-    val stacktrace = rootCauseOfException.stacktrace()
+    val stacktrace = this.stackTraceToString()
     return ExceptionData(type, cause, message, stacktrace)
 }
 
@@ -52,13 +51,4 @@ internal tailrec fun Throwable.rootCause(): Throwable {
  */
 internal fun Throwable.type(): String {
     return this::class.java.simpleName
-}
-
-/**
- * Returns the stacktrace of the exception in the form of a string.
- */
-internal fun Throwable.stacktrace(): String {
-    val outputStream = StringOutputStream()
-    printStackTrace(PrintStream(outputStream))
-    return outputStream.getString()
 }

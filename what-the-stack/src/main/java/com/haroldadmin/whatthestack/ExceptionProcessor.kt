@@ -1,7 +1,6 @@
 package com.haroldadmin.whatthestack
 
 import android.os.Parcelable
-import java.io.PrintStream
 import kotlinx.android.parcel.Parcelize
 
 /**

@@ -9,12 +9,10 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.view.updatePadding
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import dev.chrisbanes.insetter.Insetter
 import dev.chrisbanes.insetter.Side
-import dev.chrisbanes.insetter.doOnApplyWindowInsets
 import kotlinx.android.synthetic.main.activity_what_the_stack.*
 
 /**

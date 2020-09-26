@@ -1,6 +1,6 @@
 # WhatTheStack
 
-<img src="media/repo-banner.png" height="256px"/>
+![Banner](media/repo-banner.png)
 
 WhatTheStack is a library to make your debugging experience on Android better.
 

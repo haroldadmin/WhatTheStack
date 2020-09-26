@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-12.5%" y="-8.1%" width="125.1%" height="117.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Frame" stroke="#979797" fill="#D32F2F" x="10.5" y="10.5" width="491" height="491" rx="28"></rect>
+        <g id="stacks" filter="url(#filter-1)" transform="translate(115.000000, 75.000000)">
+            <rect id="empty-stack-frame" stroke="#FFFFFF" stroke-width="8" fill="#D32F2F" stroke-linecap="round" stroke-linejoin="round" transform="translate(141.421356, 221.421356) rotate(45.000000) translate(-141.421356, -221.421356) " x="41.4213562" y="121.421356" width="200" height="200" rx="8"></rect>
+            <rect id="empty-stack-frame" stroke="#FFFFFF" stroke-width="8" fill="#D32F2F" stroke-linejoin="round" transform="translate(141.421356, 181.421356) rotate(45.000000) translate(-141.421356, -181.421356) " x="41.4213562" y="81.4213562" width="200" height="200" rx="9"></rect>
+            <rect id="filled-stack-frame" stroke="#FFFFFF" stroke-width="8" fill="#FFFFFF" transform="translate(141.421356, 141.421356) rotate(45.000000) translate(-141.421356, -141.421356) " x="45.4213562" y="45.4213562" width="192" height="192" rx="8"></rect>
+            <g id="text" transform="translate(135.000000, 241.000000)" font-family="RobotoMono-Medium, Roboto Mono" font-size="12" font-weight="400" letter-spacing="1.10000002">
+                <text id="What" transform="translate(18.006097, 18.403066) rotate(-45.000000) translate(-18.006097, -18.403066) " fill="#D32F2F">
+                    <tspan x="1.00609665" y="23.4030663">What</tspan>
+                </text>
+                <text id="The" transform="translate(30.177670, 36.970563) rotate(-45.000000) translate(-30.177670, -36.970563) " fill="#FFFFFF">
+                    <tspan x="17.6776695" y="41.9705627">The</tspan>
+                </text>
+                <text id="Stack" transform="translate(58.127417, 53.520815) rotate(-45.000000) translate(-58.127417, -53.520815) " fill="#FFFFFF">
+                    <tspan x="37.127417" y="58.5208153">Stack</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

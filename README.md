@@ -1,5 +1,7 @@
 # WhatTheStack
 
+<img src="media/repo-banner.png" height="256px"/>
+
 WhatTheStack is a library to make your debugging experience on Android better.
 
 It shows you a pretty error screen when your Android App crashes, instead of a boring old dialog saying "Unfortunately, \<your-app\> has crashed".
@@ -45,7 +47,7 @@ Running in a separate process is important because when an uncaught exception is
 WhatTheStack works by replacing the default uncaught exception handler in your app's process. Unfortunately, crash reporting libraries such as Firebase Crashlytics also work in this manner.
 Since there can only be one default uncaught exception handler, WhatTheStack might break crash reporting libraries from working properly in debug builds.
 
-This *should not be a problem for most users* as crash reporting tools are rarely used in debug builds.
+This _should not be a problem for most users_ as crash reporting tools are rarely used in debug builds.
 
 ## Installation
 

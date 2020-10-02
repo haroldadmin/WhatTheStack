@@ -3,6 +3,7 @@ package com.haroldadmin.whatthestack
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
@@ -64,6 +65,19 @@ class WhatTheStackActivity : AppCompatActivity() {
                 val clipping = ClipData.newPlainText("stacktrace", stackTrace)
                 clipboardManager.setPrimaryClip(clipping)
                 snackbar { R.string.copied_message }
+            }
+        }
+
+        findViewById<MaterialButton>(R.id.shareStacktrace).apply {
+            setOnClickListener {
+                val sendIntent: Intent = Intent().apply {
+                    this.action = Intent.ACTION_SEND
+                    this.putExtra(Intent.EXTRA_TEXT, stackTrace)
+                    this.type = "text/plain"
+                }
+
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
             }
         }
     }

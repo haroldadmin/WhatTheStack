@@ -12,7 +12,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.haroldadmin.whatthestack.databinding.ActivityWhatTheStackBinding
 import dev.chrisbanes.insetter.Insetter
 import dev.chrisbanes.insetter.Side
-import kotlinx.android.synthetic.main.activity_what_the_stack.*
 
 /**
  * An Activity which displays various pieces of information regarding the exception which
@@ -20,14 +19,16 @@ import kotlinx.android.synthetic.main.activity_what_the_stack.*
  */
 class WhatTheStackActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityWhatTheStackBinding
+
     private val clipboardManager: ClipboardManager by lazy {
         getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val activityWhatTheStackBinding = ActivityWhatTheStackBinding.inflate(layoutInflater)
-        setContentView(activityWhatTheStackBinding.root)
+        binding = ActivityWhatTheStackBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         window.decorView.systemUiVisibility =
             View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -41,25 +42,25 @@ class WhatTheStackActivity : AppCompatActivity() {
         val message = intent.getStringExtra(KEY_EXCEPTION_MESSAGE)
         val stackTrace = intent.getStringExtra(KEY_EXCEPTION_STACKTRACE)
 
-        activityWhatTheStackBinding.stacktrace.apply {
+        binding.stacktrace.apply {
             text = stackTrace
             setHorizontallyScrolling(true)
             movementMethod = ScrollingMovementMethod()
         }
 
-        activityWhatTheStackBinding.exceptionName.apply {
+        binding.exceptionName.apply {
             text = getString(R.string.exception_name, type)
         }
 
-        activityWhatTheStackBinding.exceptionCause.apply {
+        binding.exceptionCause.apply {
             text = getString(R.string.exception_cause, cause)
         }
 
-        activityWhatTheStackBinding.exceptionMessage.apply {
+        binding.exceptionMessage.apply {
             text = getString(R.string.exception_message, message)
         }
 
-        activityWhatTheStackBinding.copyStacktrace.apply {
+        binding.copyStacktrace.apply {
             setOnClickListener {
                 val clipping = ClipData.newPlainText("stacktrace", stackTrace)
                 clipboardManager.setPrimaryClip(clipping)
@@ -67,7 +68,7 @@ class WhatTheStackActivity : AppCompatActivity() {
             }
         }
 
-        activityWhatTheStackBinding.shareStacktrace.apply {
+        binding.shareStacktrace.apply {
             setOnClickListener {
                 val sendIntent: Intent = Intent().apply {
                     this.action = Intent.ACTION_SEND
@@ -80,7 +81,7 @@ class WhatTheStackActivity : AppCompatActivity() {
             }
         }
 
-        activityWhatTheStackBinding.launchApplication.apply {
+        binding.launchApplication.apply {
             setOnClickListener {
                 context.packageManager.getLaunchIntentForPackage(applicationContext.packageName)?.let {
                     it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -91,6 +92,6 @@ class WhatTheStackActivity : AppCompatActivity() {
     }
 
     private inline fun snackbar(messageProvider: () -> Int) {
-        Snackbar.make(nestedScrollRoot, messageProvider(), Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(binding.nestedScrollRoot, messageProvider(), Snackbar.LENGTH_SHORT).show()
     }
 }

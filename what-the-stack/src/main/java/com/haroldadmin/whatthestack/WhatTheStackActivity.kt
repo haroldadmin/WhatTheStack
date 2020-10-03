@@ -80,6 +80,15 @@ class WhatTheStackActivity : AppCompatActivity() {
                 startActivity(shareIntent)
             }
         }
+
+        findViewById<MaterialButton>(R.id.launchApplication).apply {
+            setOnClickListener {
+                context.packageManager.getLaunchIntentForPackage(applicationContext.packageName)?.let {
+                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(it)
+                }
+            }
+        }
     }
 
     private inline fun snackbar(messageProvider: () -> Int) {

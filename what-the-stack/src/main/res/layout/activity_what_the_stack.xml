@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nestedScrollRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -95,7 +95,21 @@
             android:text="@string/share_stacktrace"
             android:textColor="?attr/colorOnSurface"
             app:icon="@drawable/ic_outline_share_24"
-            app:iconTint="?attr/colorSecondary"/>
+            app:iconTint="?attr/colorSecondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/launchApplication"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/restart_application"
+            android:textColor="?attr/colorOnSurface"
+            app:icon="@drawable/ic_baseline_refresh_24"
+            app:iconTint="?attr/colorSecondary" />
 
         <TextView
             android:id="@+id/stacktraceHeader"

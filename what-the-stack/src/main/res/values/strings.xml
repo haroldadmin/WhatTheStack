@@ -32,6 +32,7 @@
     <string name="exception_message">Message: %1$s</string>
     <string name="copy_stacktrace">Copy stacktrace</string>
     <string name="share_stacktrace">Share stacktrace</string>
+    <string name="restart_application">Restart Application</string>
     <string name="relaunch_app">Relaunch App</string>
     <string name="copied_message">Stacktrace copied!</string>
 </resources>

@@ -26,6 +26,7 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+        useIR = true
     }
 
     compileOptions {
@@ -38,7 +39,19 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "${versions.composeCompiler}"
+        kotlinCompilerVersion '1.4.0'
+    }
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += ["-Xallow-jvm-ir-dependencies", "-Xskip-prerelease-check"]
     }
 }
 
@@ -52,7 +65,10 @@ dependencies {
     implementation libs.constraintLayout
     implementation libs.materialComponents
     implementation libs.startup
-    implementation libs.insetter
+
+    implementation libs.composeUi
+    implementation libs.composeMaterial
+    implementation libs.composeTooling
 
     testImplementation libs.junit
     testImplementation libs.mockk

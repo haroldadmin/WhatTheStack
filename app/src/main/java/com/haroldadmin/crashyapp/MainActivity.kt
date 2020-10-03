@@ -2,15 +2,16 @@ package com.haroldadmin.crashyapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.haroldadmin.crashyapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        crashButton.setOnClickListener {
+        binding.crashButton.setOnClickListener {
             throw BecauseICanException()
         }
     }

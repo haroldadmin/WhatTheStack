@@ -31,11 +31,11 @@ class WhatTheStackActivity : AppCompatActivity() {
         setContentView(R.layout.activity_what_the_stack)
 
         window.decorView.systemUiVisibility =
-                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 
         Insetter.builder()
-                .applySystemWindowInsetsToPadding(Side.LEFT or Side.RIGHT or Side.TOP)
-                .applyToView(findViewById(R.id.nestedScrollRoot))
+            .applySystemWindowInsetsToPadding(Side.LEFT or Side.RIGHT or Side.TOP)
+            .applyToView(findViewById(R.id.nestedScrollRoot))
 
         val type = intent.getStringExtra(KEY_EXCEPTION_TYPE)
         val cause = intent.getStringExtra(KEY_EXCEPTION_CAUSE)

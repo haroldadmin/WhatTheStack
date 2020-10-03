@@ -7,11 +7,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatTextView
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
+import com.haroldadmin.whatthestack.databinding.ActivityWhatTheStackBinding
 import dev.chrisbanes.insetter.Insetter
 import dev.chrisbanes.insetter.Side
 import kotlinx.android.synthetic.main.activity_what_the_stack.*
@@ -28,7 +26,8 @@ class WhatTheStackActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_what_the_stack)
+        val activityWhatTheStackBinding = ActivityWhatTheStackBinding.inflate(layoutInflater)
+        setContentView(activityWhatTheStackBinding.root)
 
         window.decorView.systemUiVisibility =
             View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -42,25 +41,25 @@ class WhatTheStackActivity : AppCompatActivity() {
         val message = intent.getStringExtra(KEY_EXCEPTION_MESSAGE)
         val stackTrace = intent.getStringExtra(KEY_EXCEPTION_STACKTRACE)
 
-        findViewById<TextView>(R.id.stacktrace).apply {
+        activityWhatTheStackBinding.stacktrace.apply {
             text = stackTrace
             setHorizontallyScrolling(true)
             movementMethod = ScrollingMovementMethod()
         }
 
-        findViewById<AppCompatTextView>(R.id.exceptionName).apply {
+        activityWhatTheStackBinding.exceptionName.apply {
             text = getString(R.string.exception_name, type)
         }
 
-        findViewById<AppCompatTextView>(R.id.exceptionCause).apply {
+        activityWhatTheStackBinding.exceptionCause.apply {
             text = getString(R.string.exception_cause, cause)
         }
 
-        findViewById<AppCompatTextView>(R.id.exceptionMessage).apply {
+        activityWhatTheStackBinding.exceptionMessage.apply {
             text = getString(R.string.exception_message, message)
         }
 
-        findViewById<MaterialButton>(R.id.copyStacktrace).apply {
+        activityWhatTheStackBinding.copyStacktrace.apply {
             setOnClickListener {
                 val clipping = ClipData.newPlainText("stacktrace", stackTrace)
                 clipboardManager.setPrimaryClip(clipping)
@@ -68,7 +67,7 @@ class WhatTheStackActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<MaterialButton>(R.id.shareStacktrace).apply {
+        activityWhatTheStackBinding.shareStacktrace.apply {
             setOnClickListener {
                 val sendIntent: Intent = Intent().apply {
                     this.action = Intent.ACTION_SEND
@@ -81,7 +80,7 @@ class WhatTheStackActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<MaterialButton>(R.id.launchApplication).apply {
+        activityWhatTheStackBinding.launchApplication.apply {
             setOnClickListener {
                 context.packageManager.getLaunchIntentForPackage(applicationContext.packageName)?.let {
                     it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

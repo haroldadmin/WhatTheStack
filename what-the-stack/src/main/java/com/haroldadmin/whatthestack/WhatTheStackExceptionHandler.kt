@@ -12,7 +12,8 @@ import androidx.core.os.bundleOf
  */
 
 internal class WhatTheStackExceptionHandler(
-    private val service: Messenger
+    private val service: Messenger,
+    private val defaultHandler: Thread.UncaughtExceptionHandler?
 ) : Thread.UncaughtExceptionHandler {
     override fun uncaughtException(t: Thread, e: Throwable) {
 
@@ -27,6 +28,6 @@ internal class WhatTheStackExceptionHandler(
             )
         })
 
-        Process.killProcess(Process.myPid())
+        defaultHandler?.uncaughtException(t, e) ?: Process.killProcess(Process.myPid())
     }
 }

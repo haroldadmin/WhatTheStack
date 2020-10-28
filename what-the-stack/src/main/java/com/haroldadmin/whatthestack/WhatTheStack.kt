@@ -32,7 +32,8 @@ internal object InitializationManager {
     private val connection = WhatTheStackConnection(
         onConnected = { binder ->
             val messenger = Messenger(binder)
-            val exceptionHandler = WhatTheStackExceptionHandler(messenger)
+            val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
+            val exceptionHandler = WhatTheStackExceptionHandler(messenger, defaultHandler)
             Thread.setDefaultUncaughtExceptionHandler(exceptionHandler)
         }
     )

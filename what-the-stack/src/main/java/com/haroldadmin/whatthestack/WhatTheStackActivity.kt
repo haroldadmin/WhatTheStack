@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
@@ -31,11 +32,11 @@ class WhatTheStackActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 
         Insetter.builder()
-            .applySystemWindowInsetsToPadding(Side.LEFT or Side.RIGHT or Side.TOP)
-            .applyToView(findViewById(R.id.nestedScrollRoot))
+                .applySystemWindowInsetsToPadding(Side.LEFT or Side.RIGHT or Side.TOP)
+                .applyToView(findViewById(R.id.nestedScrollRoot))
 
         val type = intent.getStringExtra(KEY_EXCEPTION_TYPE)
         val cause = intent.getStringExtra(KEY_EXCEPTION_CAUSE)
@@ -87,6 +88,17 @@ class WhatTheStackActivity : AppCompatActivity() {
                     it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(it)
                 }
+            }
+        }
+
+        binding.searchStackoverflow.apply {
+            setOnClickListener {
+                val searchQuery = "$cause: $message"
+                val searchIntent: Intent = Intent().apply {
+                    this.action = Intent.ACTION_VIEW
+                    this.data = Uri.parse(generateStackoverflowSearchUrl(searchQuery))
+                }
+                startActivity(searchIntent)
             }
         }
     }

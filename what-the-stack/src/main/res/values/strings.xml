@@ -30,9 +30,10 @@
     <string name="exception_cause">Cause: %1$s</string>
     <string name="stacktrace">Stacktrace</string>
     <string name="exception_message">Message: %1$s</string>
-    <string name="copy_stacktrace">Copy stacktrace</string>
-    <string name="share_stacktrace">Share stacktrace</string>
-    <string name="restart_application">Restart Application</string>
+    <string name="copy_stacktrace">Copy</string>
+    <string name="share_stacktrace">Share</string>
+    <string name="restart_application">Restart</string>
     <string name="relaunch_app">Relaunch App</string>
     <string name="copied_message">Stacktrace copied!</string>
+    <string name="search_stackoverflow">Stackoverflow</string>
 </resources>

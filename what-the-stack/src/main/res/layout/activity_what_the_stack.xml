@@ -99,6 +99,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/exceptionMessage" />
 
+        <!-- Ignore missing-constraints lint error because lint hasn't been updated-->
+        <!-- for constraint layout Flow yet-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/copyStacktrace"
             style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
@@ -107,7 +109,8 @@
             android:text="@string/copy_stacktrace"
             android:textColor="?attr/colorOnSurface"
             app:icon="@drawable/ic_outline_content_copy_24"
-            app:iconTint="?attr/colorSecondary" />
+            app:iconTint="?attr/colorSecondary"
+            tools:ignore="MissingConstraints" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/shareStacktrace"
@@ -117,7 +120,8 @@
             android:text="@string/share_stacktrace"
             android:textColor="?attr/colorOnSurface"
             app:icon="@drawable/ic_outline_share_24"
-            app:iconTint="?attr/colorSecondary" />
+            app:iconTint="?attr/colorSecondary"
+            tools:ignore="MissingConstraints" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/launchApplication"
@@ -127,7 +131,8 @@
             android:text="@string/restart_application"
             android:textColor="?attr/colorOnSurface"
             app:icon="@drawable/ic_baseline_refresh_24"
-            app:iconTint="?attr/colorSecondary" />
+            app:iconTint="?attr/colorSecondary"
+            tools:ignore="MissingConstraints" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/searchStackoverflow"
@@ -138,7 +143,8 @@
             android:text="@string/search_stackoverflow"
             android:textColor="?attr/colorOnSurface"
             app:icon="@drawable/ic_round_search_24"
-            app:iconTint="?attr/colorSecondary" />
+            app:iconTint="?attr/colorSecondary"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/stacktraceHeader"

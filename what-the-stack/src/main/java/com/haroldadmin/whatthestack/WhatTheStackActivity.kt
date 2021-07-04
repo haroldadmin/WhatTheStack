@@ -9,10 +9,12 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import com.google.android.material.snackbar.Snackbar
 import com.haroldadmin.whatthestack.databinding.ActivityWhatTheStackBinding
 import dev.chrisbanes.insetter.Insetter
 import dev.chrisbanes.insetter.Side
+import dev.chrisbanes.insetter.windowInsetTypesOf
 
 /**
  * An Activity which displays various pieces of information regarding the exception which
@@ -31,12 +33,11 @@ class WhatTheStackActivity : AppCompatActivity() {
         binding = ActivityWhatTheStackBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.decorView.systemUiVisibility =
-                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         Insetter.builder()
-                .applySystemWindowInsetsToPadding(Side.LEFT or Side.RIGHT or Side.TOP)
-                .applyToView(findViewById(R.id.nestedScrollRoot))
+            .padding(windowInsetTypesOf(statusBars = true, navigationBars = true))
+            .applyToView(binding.root)
 
         val type = intent.getStringExtra(KEY_EXCEPTION_TYPE)
         val cause = intent.getStringExtra(KEY_EXCEPTION_CAUSE)
@@ -84,10 +85,11 @@ class WhatTheStackActivity : AppCompatActivity() {
 
         binding.launchApplication.apply {
             setOnClickListener {
-                context.packageManager.getLaunchIntentForPackage(applicationContext.packageName)?.let {
-                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(it)
-                }
+                context.packageManager.getLaunchIntentForPackage(applicationContext.packageName)
+                    ?.let {
+                        it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(it)
+                    }
             }
         }
 

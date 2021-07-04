@@ -6,6 +6,7 @@
   <color name="secondaryColor">#616161</color>
   <color name="secondaryLightColor">#8e8e8e</color>
   <color name="secondaryDarkColor">#373737</color>
+  <color name="secondaryDarkColorTranslucent">#33373737</color>
   <color name="primaryTextColor">#ffffff</color>
   <color name="secondaryTextColor">#ffffff</color>
 </resources>

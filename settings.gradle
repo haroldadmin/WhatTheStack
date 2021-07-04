@@ -1,3 +1,4 @@
 include ':what-the-stack'
 include ':app'
 rootProject.name = "WhatTheStack"
+enableFeaturePreview("VERSION_CATALOGS")

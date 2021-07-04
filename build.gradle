@@ -4,71 +4,29 @@ buildscript {
             "compileSdk"   : 29,
             "minSdk"       : 21,
             "targetSdk"    : 29,
-            "kotlin"       : "1.4.0",
-            "agp"          : "4.1.1",
-            "ktlintPlugin" : "9.1.1",
             "versionCode"  : 1,
             "versionName"  : "0.0.1"
     ]
 
-    ext.versions = [
-            "appCompat"         : "1.1.0",
-            "coreTest"          : "2.0.0",
-            "coreKtx"           : "1.3.2",
-            "materialComponents": "1.2.1",
-            "fragment"          : "1.2.5",
-            "constraintLayout"  : "2.0.4",
-            "insetter"          : "0.4.0",
-            "junit"             : "4.12",
-            "androidxTestCore"  : "1.2.0",
-            "androidxTestExt"   : "1.1.1",
-            "androidxTestRunner": "1.2.0",
-            "espressoCore"      : "3.2.0",
-            "mockk"             : "1.9.3",
-            "robolectric"       : "4.3.1",
-            "startup"           : "1.0.0",
-    ]
-
-    ext.libs = [
-            "kotlinStdLib"      : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${buildConfig.kotlin}",
-            "appCompat"         : "androidx.appcompat:appcompat:${versions.appCompat}",
-            "coreTest"          : "androidx.arch.core:core-testing:${versions.coreTest}",
-            "coreKtx"           : "androidx.core:core-ktx:${versions.coreKtx}",
-            "materialComponents": "com.google.android.material:material:${versions.materialComponents}",
-            "constraintLayout"  : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
-            "fragmentKtx"       : "androidx.fragment:fragment-ktx:${versions.fragment}",
-            "startup"           : "androidx.startup:startup-runtime:${versions.startup}",
-            "insetter"          : "dev.chrisbanes.insetter:insetter:${versions.insetter}",
-
-            "junit"             : "junit:junit:${versions.junit}",
-            "androidxTestCore"  : "androidx.test:core:${versions.androidxTestCore}",
-            "androidxTestExt"   : "androidx.test.ext:junit:${versions.androidxTestExt}",
-            "androidxTestRunner": "androidx.test:runner:${versions.androidxTestRunner}",
-            "espressoCore"      : "androidx.test.espresso:espresso-core:${versions.espressoCore}",
-            "mockk"             : "io.mockk:mockk:${versions.mockk}",
-            "robolectric"       : "org.robolectric:robolectric:${versions.robolectric}"
-    ]
-
     repositories {
+        mavenCentral()
         google()
-        jcenter()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:${buildConfig.agp}"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${buildConfig.kotlin}"
-        classpath "org.jlleitschuh.gradle:ktlint-gradle:${buildConfig.ktlintPlugin}"
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath libs.agp
+        classpath libs.kotlinGradlePlugin
+        classpath libs.ktlintGradlePlugin
     }
 }
 
 allprojects {
     repositories {
+        mavenCentral()
         google()
-        jcenter()
     }
 }
 

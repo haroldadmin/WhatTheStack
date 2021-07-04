@@ -1,9 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group = "com.github.haroldadmin"
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion buildConfig.compileSdk
@@ -60,4 +58,17 @@ dependencies {
     androidTestImplementation libs.androidxTestCore
     androidTestImplementation libs.androidxTestExt
     androidTestImplementation libs.espressoCore
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            WhatTheStack(MavenPublication) {
+                from components.release
+                groupId = "com.github.haroldadmin"
+                artifactId = "WhatTheStack"
+                version = "0.3.0"
+            }
+        }
+    }
 }

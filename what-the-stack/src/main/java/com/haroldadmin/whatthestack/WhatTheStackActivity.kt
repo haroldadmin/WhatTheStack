@@ -7,13 +7,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.google.android.material.snackbar.Snackbar
 import com.haroldadmin.whatthestack.databinding.ActivityWhatTheStackBinding
 import dev.chrisbanes.insetter.Insetter
-import dev.chrisbanes.insetter.Side
 import dev.chrisbanes.insetter.windowInsetTypesOf
 
 /**

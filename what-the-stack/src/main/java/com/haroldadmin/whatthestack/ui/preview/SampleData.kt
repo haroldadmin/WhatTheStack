@@ -1,7 +1,7 @@
 package com.haroldadmin.whatthestack.ui.preview
 
 object SampleData {
-    const val ExceptionType ="Runtime Exception"
+    const val ExceptionType = "Runtime Exception"
 
     const val ExceptionMessage = "This exception was thrown purely because it can be thrown"
 

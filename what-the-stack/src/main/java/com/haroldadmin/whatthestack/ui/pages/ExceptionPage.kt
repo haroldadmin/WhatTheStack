@@ -100,7 +100,7 @@ fun ExceptionPage(
                 }
             )
             Stacktrace(
-                stackTrace = stackTrace + stackTrace + stackTrace,
+                stackTrace = stackTrace,
                 modifier = Modifier.padding(top = 8.dp)
             )
             Spacer(modifier = Modifier.navigationBarsHeight(additional = 8.dp))

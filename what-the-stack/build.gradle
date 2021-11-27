@@ -36,7 +36,6 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
         compose true
     }
 
@@ -51,11 +50,7 @@ dependencies {
     implementation libs.kotlinStdLib
     implementation libs.appCompat
     implementation libs.coreKtx
-    implementation libs.fragmentKtx
-    implementation libs.constraintLayout
-    implementation libs.materialComponents
     implementation libs.startup
-    implementation libs.insetter
 
     implementation libs.composeActivity
     implementation libs.composeMaterial

@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.WhatTheStackTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryVariant">@color/primaryLightColor</item>
-        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
-        <item name="colorOnPrimary">@color/primaryTextColor</item>
-        <item name="colorSecondary">@color/secondaryColor</item>
-        <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
-        <item name="colorOnSecondary">@color/secondaryTextColor</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:statusBarColor">@color/secondaryDarkColorTranslucent</item>
-    </style>
+    <style name="Theme.WhatTheStackTheme" parent="Theme.AppCompat.DayNight.NoActionBar"/>
 </resources>

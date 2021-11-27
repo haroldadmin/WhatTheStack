@@ -37,6 +37,11 @@ android {
 
     buildFeatures {
         viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.0.5"
     }
 }
 
@@ -51,6 +56,12 @@ dependencies {
     implementation libs.materialComponents
     implementation libs.startup
     implementation libs.insetter
+
+    implementation libs.composeActivity
+    implementation libs.composeMaterial
+    implementation libs.composeTooling
+    implementation libs.accompanistSysUi
+    implementation libs.accompanistInsets
 
     testImplementation libs.junit
     testImplementation libs.mockk

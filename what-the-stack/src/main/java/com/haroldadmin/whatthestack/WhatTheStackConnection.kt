@@ -5,7 +5,7 @@ import android.content.ServiceConnection
 import android.os.IBinder
 
 internal class WhatTheStackConnection(
-    private val onDisconnected: () -> Unit = { Unit },
+    private val onDisconnected: () -> Unit = { },
     private val onConnected: (IBinder) -> Unit
 ) : ServiceConnection {
 

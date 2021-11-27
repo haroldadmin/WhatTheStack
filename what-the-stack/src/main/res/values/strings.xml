@@ -26,14 +26,13 @@
         at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:492) 
         at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:930) 
     </string>
-    <string name="exception_name">Exception: %1$s</string>
-    <string name="exception_cause">Cause: %1$s</string>
+    <string name="exception_name">Exception</string>
     <string name="stacktrace">Stacktrace</string>
-    <string name="exception_message">Message: %1$s</string>
-    <string name="copy_stacktrace">Copy</string>
-    <string name="share_stacktrace">Share</string>
-    <string name="restart_application">Restart</string>
+    <string name="exception_message">Message</string>
+    <string name="copy_stacktrace">Copy Stacktrace</string>
+    <string name="share_stacktrace">Share Stacktrace</string>
+    <string name="restart_application">Restart Application</string>
     <string name="relaunch_app">Relaunch App</string>
     <string name="copied_message">Stacktrace copied!</string>
-    <string name="search_stackoverflow">Stackoverflow</string>
+    <string name="search_stackoverflow">Search Stackoverflow</string>
 </resources>

@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../layout/compose-model-1637389114015.xml" value="0.375" />
+        <entry key="../../../../../layout/compose-model-1637993826951.xml" value="0.3264358108108108" />
+        <entry key="../../../../../layout/compose-model-1637995108188.xml" value="0.3264358108108108" />
+        <entry key="../../../../../layout/compose-model-1637995374268.xml" value="0.33" />
+        <entry key="../../../../../layout/compose-model-1638005744614.xml" value="0.25" />
+        <entry key="../../../../../layout/compose-model-1638005744616.xml" value="0.12332775919732442" />
+        <entry key="../../../../../layout/compose-model-1638005771522.xml" value="0.25" />
+        <entry key="../../../../../layout/compose-model-1638077548758.xml" value="0.25" />
+        <entry key="../../../../../layout/compose-model-1638077548759.xml" value="0.12332775919732442" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19882246376811594" />
+        <entry key="what-the-stack/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.1465" />
+        <entry key="what-the-stack/src/main/res/drawable/ic_outline_content_copy_24.xml" value="0.1465" />
+        <entry key="what-the-stack/src/main/res/drawable/ic_outline_share_24.xml" value="0.1465" />
+        <entry key="what-the-stack/src/main/res/drawable/ic_round_search_24.xml" value="0.1465" />
+        <entry key="what-the-stack/src/main/res/layout/activity_what_the_stack.xml" value="0.37604166666666666" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -1,20 +1,19 @@
 package com.haroldadmin.crashyapp
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.haroldadmin.crashyapp.databinding.ActivityMainBinding
+import com.haroldadmin.crashyapp.ui.pages.HomePage
+import com.haroldadmin.crashyapp.ui.theme.CrashyAppTheme
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        binding.crashButton.setOnClickListener {
-            throw BecauseICanException()
+        setContent {
+            CrashyAppTheme {
+                HomePage()
+            }
         }
     }
 }
-
-private class BecauseICanException : Exception("This exception is thrown purely because it can be thrown")

@@ -3,10 +3,7 @@ package com.haroldadmin.whatthestack
 import android.app.Service
 import android.content.Context
 import android.content.Intent
-import android.os.Handler
-import android.os.IBinder
-import android.os.Message
-import android.os.Messenger
+import android.os.*
 
 /**
  * A Bound Service which runs in a separate process than the application.
@@ -28,7 +25,7 @@ class WhatTheStackService : Service() {
 
     internal class WhatTheStackHandler(
         private val applicationContext: Context
-    ) : Handler() {
+    ) : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             val type = msg.data.getString(KEY_EXCEPTION_TYPE)
             val cause = msg.data.getString(KEY_EXCEPTION_CAUSE)

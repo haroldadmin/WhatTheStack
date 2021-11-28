@@ -19,14 +19,16 @@ internal class WhatTheStackExceptionHandler(
 
         val exceptionData = e.process()
 
-        service.send(Message().apply {
-            data = bundleOf(
-                KEY_EXCEPTION_TYPE to exceptionData.type,
-                KEY_EXCEPTION_CAUSE to exceptionData.cause,
-                KEY_EXCEPTION_MESSAGE to exceptionData.message,
-                KEY_EXCEPTION_STACKTRACE to exceptionData.stacktrace
-            )
-        })
+        service.send(
+            Message().apply {
+                data = bundleOf(
+                    KEY_EXCEPTION_TYPE to exceptionData.type,
+                    KEY_EXCEPTION_CAUSE to exceptionData.cause,
+                    KEY_EXCEPTION_MESSAGE to exceptionData.message,
+                    KEY_EXCEPTION_STACKTRACE to exceptionData.stacktrace
+                )
+            }
+        )
 
         defaultHandler?.uncaughtException(t, e) ?: Process.killProcess(Process.myPid())
     }

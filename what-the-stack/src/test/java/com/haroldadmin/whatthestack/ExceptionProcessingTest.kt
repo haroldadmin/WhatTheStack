@@ -1,7 +1,7 @@
 package com.haroldadmin.whatthestack
 
-import java.io.PrintStream
 import org.junit.Test
+import java.io.PrintStream
 
 internal class ExceptionProcessingTest {
 

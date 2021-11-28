@@ -1,7 +1,7 @@
 package com.haroldadmin.whatthestack
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 /**
  * Represents the data of the exception to be displayed to the user.

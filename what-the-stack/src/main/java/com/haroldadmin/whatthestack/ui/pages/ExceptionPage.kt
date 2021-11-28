@@ -3,6 +3,7 @@ package com.haroldadmin.whatthestack.ui.pages
 import android.content.Intent
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.net.Uri
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -29,7 +30,6 @@ import com.haroldadmin.whatthestack.R
 import com.haroldadmin.whatthestack.generateStackoverflowSearchUrl
 import com.haroldadmin.whatthestack.ui.components.OutlinedIconButton
 import com.haroldadmin.whatthestack.ui.components.OverlineLabel
-import com.haroldadmin.whatthestack.ui.components.ScrollableText
 import com.haroldadmin.whatthestack.ui.preview.SampleData
 import com.haroldadmin.whatthestack.ui.theme.WhatTheStackTheme
 import kotlinx.coroutines.launch
@@ -190,12 +190,14 @@ fun Stacktrace(stackTrace: String, modifier: Modifier) {
             modifier = Modifier.padding(top = 4.dp)
         ) {
             SelectionContainer {
-                ScrollableText(
+                Text(
                     text = stackTrace,
                     style = MaterialTheme.typography.body2.copy(fontSize = 12.sp),
                     fontFamily = FontFamily.Monospace,
                     color = MaterialTheme.colors.onBackground,
-                    modifier = Modifier.padding(4.dp)
+                    modifier = Modifier
+                        .padding(4.dp)
+                        .horizontalScroll(rememberScrollState())
                 )
             }
         }

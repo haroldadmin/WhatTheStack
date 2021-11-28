@@ -25,7 +25,7 @@ class WhatTheStackService : Service() {
 
     internal class WhatTheStackHandler(
         private val applicationContext: Context
-    ) : Handler() {
+    ) : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             val type = msg.data.getString(KEY_EXCEPTION_TYPE)
             val cause = msg.data.getString(KEY_EXCEPTION_CAUSE)

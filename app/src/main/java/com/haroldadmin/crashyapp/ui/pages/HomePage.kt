@@ -26,7 +26,7 @@ fun HomePage() {
                 .fillMaxHeight()
         ) {
             Text(
-                text = "Press the button below to see error screen from WhatTheStack!",
+                text = "Press the button to see the error screen from WhatTheStack!",
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(16.dp))

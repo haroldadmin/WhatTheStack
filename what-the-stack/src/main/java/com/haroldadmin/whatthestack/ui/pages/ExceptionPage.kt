@@ -15,7 +15,6 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -50,7 +49,7 @@ fun ExceptionPage(
     Scaffold(scaffoldState = scaffoldState) {
         Column(
             modifier = Modifier
-                .padding(horizontal = 8.dp)
+                .padding(horizontal = 16.dp)
                 .verticalScroll(rememberScrollState())
         ) {
             Spacer(modifier = Modifier.statusBarsHeight(additional = 8.dp))
@@ -185,16 +184,13 @@ fun ExceptionOptions(
 fun Stacktrace(stackTrace: String, modifier: Modifier) {
     Column(modifier) {
         OverlineLabel(label = stringResource(id = R.string.stacktrace))
-        Surface(
-            color = Color.LightGray.copy(alpha = 0.5f),
-            modifier = Modifier.padding(top = 4.dp)
-        ) {
+        Surface(modifier = Modifier.padding(top = 4.dp)) {
             SelectionContainer {
                 Text(
                     text = stackTrace,
                     style = MaterialTheme.typography.body2.copy(fontSize = 12.sp),
                     fontFamily = FontFamily.Monospace,
-                    color = MaterialTheme.colors.onBackground,
+                    color = MaterialTheme.colors.primary,
                     modifier = Modifier
                         .padding(4.dp)
                         .horizontalScroll(rememberScrollState())

@@ -7,19 +7,21 @@ import androidx.core.os.bundleOf
 
 /**
  * A [Thread.UncaughtExceptionHandler] which is meant to be used as a default exception handler on
- * the application. Any uncaught exceptions which are handled by this handler are processed and
- * send to [WhatTheStackService] to show the error screen.
+ * the application.
+ *
+ * It runs in the host app's process to:
+ * 1. Process any exception it catches and forward the result in a [Message] to [WhatTheStackService]
+ * 2. Call the default exception handler it replaced, if any
+ * 3. Kill the app process if there was no previous default exception handler
  */
-
+@HostAppProcess
 internal class WhatTheStackExceptionHandler(
-    private val service: Messenger,
-    private val defaultHandler: Thread.UncaughtExceptionHandler?
+    private val serviceMessenger: Messenger,
+    private val defaultHandler: Thread.UncaughtExceptionHandler?,
 ) : Thread.UncaughtExceptionHandler {
     override fun uncaughtException(t: Thread, e: Throwable) {
-
         val exceptionData = e.process()
-
-        service.send(
+        serviceMessenger.send(
             Message().apply {
                 data = bundleOf(
                     KEY_EXCEPTION_TYPE to exceptionData.type,
@@ -30,6 +32,6 @@ internal class WhatTheStackExceptionHandler(
             }
         )
 
-        defaultHandler?.uncaughtException(t, e) ?: Process.killProcess(Process.myPid())
+        defaultHandler?.uncaughtException(t, e)
     }
 }

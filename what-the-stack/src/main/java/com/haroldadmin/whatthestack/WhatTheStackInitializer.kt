@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.IBinder
 import android.os.Messenger
-import android.util.Log
 import androidx.startup.Initializer
 import java.lang.Class
 

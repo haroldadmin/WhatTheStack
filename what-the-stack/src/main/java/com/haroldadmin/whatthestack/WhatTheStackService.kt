@@ -4,7 +4,6 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.*
-import android.util.Log
 
 /**
  * A Bound Service which runs in a separate process than the host application.

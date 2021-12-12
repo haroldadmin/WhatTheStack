@@ -78,6 +78,15 @@ dependencies {
 The library ships with Proguard rules to ensure that it works correctly even after minification.
 </details>
 
+### Multi-Process Service
+
+`WhatTheStack` runs a bound service in a separate process to show you the error screen on a crash.
+
+We need to run this code in a separate process because you can't reliably launch new Activities
+in the host application's process after an uncaught exception is thrown.
+
+
+
 ## Contributions
 
 We are happy to accept any external contributions in the form of PRs, issues, or blog posts. 

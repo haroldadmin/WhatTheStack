@@ -13,10 +13,12 @@
 
         <service
             android:name=".WhatTheStackService"
+            android:exported="false"
             android:process=":what_the_stack_process" />
         <activity
             android:name=".WhatTheStackActivity"
             android:theme="@style/Theme.WhatTheStackTheme"
+            android:exported="false"
             android:process=":what_the_stack_process" />
     </application>
 </manifest>

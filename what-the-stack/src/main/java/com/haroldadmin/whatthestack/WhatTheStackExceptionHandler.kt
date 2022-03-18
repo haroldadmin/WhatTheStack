@@ -2,6 +2,7 @@ package com.haroldadmin.whatthestack
 
 import android.os.Message
 import android.os.Messenger
+import android.util.Log
 import androidx.core.os.bundleOf
 
 /**
@@ -19,6 +20,7 @@ internal class WhatTheStackExceptionHandler(
     private val defaultHandler: Thread.UncaughtExceptionHandler?,
 ) : Thread.UncaughtExceptionHandler {
     override fun uncaughtException(t: Thread, e: Throwable) {
+        e.printStackTrace()
         val exceptionData = e.process()
         serviceMessenger.send(
             Message().apply {

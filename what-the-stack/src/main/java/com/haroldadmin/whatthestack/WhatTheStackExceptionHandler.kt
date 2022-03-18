@@ -2,7 +2,6 @@ package com.haroldadmin.whatthestack
 
 import android.os.Message
 import android.os.Messenger
-import android.util.Log
 import androidx.core.os.bundleOf
 
 /**

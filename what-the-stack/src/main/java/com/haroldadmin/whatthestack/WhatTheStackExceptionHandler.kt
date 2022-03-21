@@ -19,6 +19,7 @@ internal class WhatTheStackExceptionHandler(
     private val defaultHandler: Thread.UncaughtExceptionHandler?,
 ) : Thread.UncaughtExceptionHandler {
     override fun uncaughtException(t: Thread, e: Throwable) {
+        e.printStackTrace()
         val exceptionData = e.process()
         serviceMessenger.send(
             Message().apply {
